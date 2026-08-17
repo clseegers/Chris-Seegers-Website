@@ -63,6 +63,29 @@
   .navlinks a:hover{opacity:1; color:var(--gold);}
   @media (max-width:720px){ .navlinks{display:none;} }
 
+  .nav-toggle{display:none;}
+  .nav-toggle-label{
+    display:none; flex-direction:column; gap:5px; cursor:pointer;
+    position:absolute; top:50%; right:6vw; transform:translateY(-50%);
+    padding:0.4rem; z-index:60;
+  }
+  .nav-toggle-label span{width:24px; height:2px; background:var(--gold); display:block; transition:transform .2s, opacity .2s;}
+  @media (max-width:720px){ .nav-toggle-label{display:flex;} }
+
+  .mobile-menu{
+    display:none; flex-direction:column;
+    background:var(--navy-deep); border-top:1px solid rgba(205,198,140,0.15);
+    padding:0.5rem 6vw 1.2rem;
+  }
+  .mobile-menu a{
+    padding:0.8rem 0; font-size:0.95rem; font-weight:600; color:var(--text-on-dark);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .nav-toggle:checked ~ .mobile-menu{display:flex;}
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2){opacity:0;}
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
   /* HERO */
   .hero{
     min-height:100vh;
@@ -208,6 +231,17 @@
   @keyframes spin{ from{transform:rotate(0deg) translateY(0);} to{transform:rotate(360deg) translateY(0);} }
   @keyframes counterspin{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
   @media (prefers-reduced-motion: reduce){ .node, .node .pin, .node .label{ animation:none; } }
+  @media (max-width:480px){
+    .orbit{width:280px; height:280px;}
+    .orbit-ring.inner{inset:52px;}
+    .orbit-center{width:88px; height:88px; font-size:0.72rem;}
+    .node{width:84px;}
+    .node .pin{width:48px; height:48px; font-size:0.68rem;}
+    .node .label{font-size:0.62rem;}
+    .node.n1{margin-left:-42px;}
+    .node.n2{bottom:26px; left:0;}
+    .node.n3{bottom:26px; right:0;}
+  }
 
   /* FRAMEWORKS — ELOS / EBOS / EWOS */
   .frameworks-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.6px; background:rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.08); margin-top:0.5rem;}
@@ -285,7 +319,7 @@
   footer{padding:3rem 0; text-align:center; background:var(--navy-deep); border-top:1px solid rgba(255,255,255,0.06);}
   footer p{color:var(--text-muted); font-size:0.85rem;}
   footer .tagline{font-family:'Fraunces',serif; font-style:italic; color:var(--gold); margin-bottom:0.6rem; font-size:1rem;}
-  .social-row{display:flex; gap:1.6rem; justify-content:center; margin-bottom:1.8rem;}
+  .social-row{display:flex; flex-wrap:wrap; gap:1rem 1.6rem; justify-content:center; margin-bottom:1.8rem;}
   .social-row a{
     color:var(--text-muted); font-size:0.82rem; font-weight:700;
     letter-spacing:0.04em; text-decoration:none;
@@ -317,6 +351,7 @@
 <body>
 
 <nav>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
   <div class="wrap">
     <div class="brand">Chris <span>Seegers</span></div>
     <div class="navlinks">
@@ -327,6 +362,15 @@
       <a href="#podcasts">Podcasts</a>
       <a href="#contact">Connect</a>
     </div>
+  </div>
+  <label for="navToggle" class="nav-toggle-label"><span></span><span></span><span></span></label>
+  <div class="mobile-menu">
+    <a href="#mission">Mission</a>
+    <a href="#frameworks">Frameworks</a>
+    <a href="#ventures">Ventures</a>
+    <a href="#books">Books</a>
+    <a href="#podcasts">Podcasts</a>
+    <a href="#contact">Connect</a>
   </div>
 </nav>
 
