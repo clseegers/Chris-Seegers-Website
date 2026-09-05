@@ -640,7 +640,7 @@
     <p>Whether you're preparing to sell, looking to acquire, or building something that needs a guide instead of a broker — start here.</p>
     <div class="cta-row" style="justify-content:center;">
       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0lRYzYVtOZlBxL8FrS3IrWsInoShILlJUsQWQpGrOSnfxXYEThZuUl8WbHbmAtXShNOvV_q5Lb" class="btn btn-primary" target="_blank">Book a conversation →</a>
-      <a href="mailto:chris@excoadvisors.com" class="btn btn-ghost">chris@excoadvisors.com</a>
+      <a href="#" class="btn btn-ghost obfuscated-email" data-user="chris" data-domain="excoadvisors.com">Email Chris</a>
     </div>
   </div>
 </section>
@@ -667,5 +667,12 @@
   revealEls.forEach(el=>io.observe(el));
 </script>
 
+<script>
+  document.querySelectorAll('.obfuscated-email').forEach(function(el){
+    var addr = el.getAttribute('data-user') + '@' + el.getAttribute('data-domain');
+    el.href = 'mailto:' + addr;
+    el.textContent = addr;
+  });
+</script>
 </body>
 </html>
