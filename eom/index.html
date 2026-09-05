@@ -149,7 +149,37 @@
   .deliverable-body p{font-size:0.93rem; color:#5A5346;}
 
   /* THE ROOM */
-  .room{padding:5rem 0; background:var(--navy);}
+  /* GALLERY */
+  .gallery{padding:4rem 0 0; background:var(--navy-deep);}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    grid-template-rows:auto auto;
+    gap:4px;
+    margin-top:2rem;
+  }
+  @media(max-width:900px){
+    .gallery-grid{grid-template-columns:1fr 1fr; grid-template-rows:auto;}
+  }
+  @media(max-width:560px){
+    .gallery-grid{grid-template-columns:1fr;}
+  }
+  .gallery-item{overflow:hidden; position:relative; background:var(--navy);}
+  .gallery-item.span-col{grid-column:span 1; grid-row:span 2;}
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .4s ease;
+    min-height:220px;
+  }
+  .gallery-item:hover img{transform:scale(1.02);}
+  .gallery-caption{
+    padding:1.4rem 0 3rem; text-align:center;
+    font-family:'Fraunces',serif; font-style:italic;
+    color:var(--text-muted); font-size:0.95rem;
+  }
+  .gallery-caption span{color:var(--gold);}
+
+  /* ROOM */
   .room-grid{display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-top:2rem; align-items:start;}
   @media(max-width:820px){.room-grid{grid-template-columns:1fr;}}
   .room-points{display:flex; flex-direction:column; gap:1.2rem;}
@@ -452,6 +482,34 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <span class="eyebrow">Cohort 1 — Session 1</span>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem);">The room in action.</h2>
+  </div>
+  <div class="gallery-grid" style="max-width:1440px; margin:2rem auto 0;">
+    <div class="gallery-item span-col">
+      <img src="/eom-assets/_EVR0104.jpg" alt="Chris Seegers facilitating the Exceptional Owners Mastermind session 1">
+    </div>
+    <div class="gallery-item">
+      <img src="/eom-assets/_EVR0078.jpg" alt="EOM members engaged at the table during session 1">
+    </div>
+    <div class="gallery-item">
+      <img src="/eom-assets/_EVR0502.jpg" alt="Mastermind members in discussion during session 1">
+    </div>
+    <div class="gallery-item">
+      <img src="/eom-assets/_EVR0257.jpg" alt="Chris Seegers sharing Selling Main Street with an EOM member">
+    </div>
+    <div class="gallery-item">
+      <img src="/eom-assets/_EVR0239.jpg" alt="Chris Seegers teaching the Exceptional Business Operating System">
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="gallery-caption">September 2026 · Colorado Springs, CO · <span>Cohort 1, Session 1</span></div>
   </div>
 </section>
 
