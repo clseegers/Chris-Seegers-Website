@@ -360,6 +360,12 @@
   "name": "Chris Seegers",
   "url": "https://chrisseegers.com",
   "jobTitle": "Founder of Exceptional Companies, Co-Founder of Exceptional Business Advisors",
+  "hasOccupation": {"@type":"Occupation","name":"Business Advisor"},
+  "knows": [],
+  "author": [
+    {"@type":"Book","@id":"https://www.wikidata.org/wiki/Q141379793","name":"Selling Main Street"},
+    {"@type":"Book","@id":"https://www.wikidata.org/wiki/Q141379796","name":"Buying Main Street"}
+  ],
   "worksFor": [
     { "@type": "Organization", "name": "Exceptional Companies", "url": "https://exceptionalcos.com" },
     { "@type": "Organization", "name": "Exceptional Business Advisors", "url": "https://excoadvisors.com" }
@@ -393,9 +399,9 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Book", "name": "Selling Main Street", "author": {"@type":"Person","name":"Chris Seegers"}, "url": "https://www.amazon.com/dp/B0D2B72W18" },
-    { "@type": "Book", "name": "Buying Main Street", "author": {"@type":"Person","name":"Chris Seegers"}, "url": "https://www.amazon.com/dp/195787029X" },
-    { "@type": "Book", "name": "Exceptional by Design", "author": [{"@type":"Person","name":"Chris Seegers"},{"@type":"Person","name":"Tara Seegers"}], "url": "https://exceptional-os.com" },
+    { "@type": "Book", "@id": "https://www.wikidata.org/wiki/Q141379793", "name": "Selling Main Street", "isbn": "978-1-957870-22-9", "author": {"@type":"Person","name":"Chris Seegers","@id":"https://www.wikidata.org/wiki/Q141379778"}, "url": "https://www.amazon.com/dp/B0D2B72W18" },
+    { "@type": "Book", "@id": "https://www.wikidata.org/wiki/Q141379796", "name": "Buying Main Street", "isbn": "978-1-957870-29-X", "author": {"@type":"Person","name":"Chris Seegers","@id":"https://www.wikidata.org/wiki/Q141379778"}, "url": "https://www.amazon.com/dp/195787029X" },
+    { "@type": "Book", "name": "Exceptional by Design", "author": [{"@type":"Person","name":"Chris Seegers","@id":"https://www.wikidata.org/wiki/Q141379778"},{"@type":"Person","name":"Tara Seegers"}], "url": "https://exceptional-os.com" },
     { "@type": "PodcastSeries", "name": "Exceptional Companies Podcast", "url": "https://chrisseegers.com" },
     { "@type": "PodcastSeries", "name": "Colorado Business Podcast", "url": "https://coloradobusinesspodcast.com" }
   ]
