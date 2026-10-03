@@ -364,7 +364,7 @@
   .book-card .book-desc{font-size:0.92rem; color:var(--text-muted); flex-grow:1; margin-bottom:1.2rem;}
   .book-card .book-cta a{font-size:0.8rem; font-weight:700; color:var(--gold); border-bottom:1px solid rgba(205,198,140,0.4);}
   .book-card .book-cta .soon{font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em;}
-  .book-divider{display:block; object-fit:cover; height:380px; object-position:center 30%; margin:3rem 0 0; width:100vw; margin-left:calc(-50vw + 50%);}
+  .book-divider{display:block; object-fit:cover; height:380px; object-position:center 30%; margin:3rem 0 0; width:100%;}
   .book-group-label{font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--sage); margin-top:2.8rem; margin-bottom:0.2rem;}
   .book-group-label.first{margin-top:0;}
   .book-group-label.dark{color:var(--text-muted);}
@@ -703,10 +703,14 @@
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
-  }, {threshold:0.12});
-  revealEls.forEach(el=>io.observe(el));
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, {threshold:0.12});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('show'));
+  }
 </script>
 
 <script>
