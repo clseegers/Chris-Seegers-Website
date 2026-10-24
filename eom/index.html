@@ -52,7 +52,7 @@
     border-bottom:1px solid rgba(205,198,140,0.15);
   }
   nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:1.1rem; padding-bottom:1.1rem;}
-  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;}
+  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; display:flex; align-items:center;}
   .brand span{color:var(--gold);}
   .navlinks{display:flex; gap:2.1rem; font-size:0.85rem; font-weight:600;}
   .navlinks a{opacity:0.82; transition:opacity .2s;}
@@ -299,7 +299,7 @@
 <nav>
   <input type="checkbox" id="navToggle" class="nav-toggle">
   <div class="wrap">
-    <div class="brand"><a href="/">Chris <span>Seegers</span></a></div>
+    <div class="brand"><a href="/" style="display:flex;align-items:center;"><img src="/logo.svg" alt="Exceptional Companies" style="height:32px;width:32px;margin-right:8px;">Chris <span>Seegers</span></a></div>
     <div class="navlinks">
       <a href="/#mission">Mission</a>
       <a href="/#frameworks">Frameworks</a>
